@@ -33,7 +33,6 @@ public class boj1449 {
 
         System.out.println(answer);
 
-
     }
 
 }
