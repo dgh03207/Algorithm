@@ -2,16 +2,12 @@ package Baekjoon.java.gold;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
 //배
-=======
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.StringTokenizer;
 
 public class boj1092 {
     public static void main(String[] args) throws Exception{
