@@ -32,8 +32,4 @@ public class boj2847 {
         System.out.println(answer);
 
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 0e13609bff00299528a66d74b0d7a81ffd3ab7a7
 }

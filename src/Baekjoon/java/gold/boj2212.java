@@ -12,18 +12,22 @@ public class boj2212 {
 
         int N = Integer.parseInt(br.readLine());
         int K = Integer.parseInt(br.readLine());
+        int answer = 0;
+        if(N>K) {
+            int[] sensors = new int[N];
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            for (int i = 0; i < N; i++) {
+                sensors[i] = Integer.parseInt(st.nextToken());
+            }
 
-        int[] sensors = new int[N];
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
-            sensors[i] = Integer.parseInt(st.nextToken());
+            Arrays.sort(sensors);
+            int[] distance = new int[N - 1];
+            for (int i = 0; i < N - 1; i++) {
+                distance[i] = Math.abs(sensors[i] - sensors[i + 1]);
+            }
+
+            answer = Arrays.stream(distance).sorted().limit(N - K).sum();
         }
-
-        Arrays.sort(sensors);
-        int most_far = sensors[N-1];
-        int[] road = new int[most_far];
-
-
-
+        System.out.println(answer);
     }
 }
