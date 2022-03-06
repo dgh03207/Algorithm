@@ -34,12 +34,12 @@ public class boj4256 {
     }
 
     private static void find(int root, int start, int end){
-        int rootIndex = preorder[root];
+        int rootNode = preorder[root];
         for (int i = start; i < end; i++) {
-            if(inorder[i] == rootIndex){
+            if(inorder[i] == rootNode){
                 find(root+1,start,i);
                 find(root+1+i-start,i+1,end);
-                sb.append(rootIndex+" ");
+                sb.append(rootNode+" ");
             }
         }
     }
