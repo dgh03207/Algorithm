@@ -39,5 +39,4 @@ public class boj1535 {
         }
         if(answer<j)answer = j;
     }
-
 }
