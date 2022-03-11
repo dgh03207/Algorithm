@@ -23,9 +23,7 @@ public class boj13910 {
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
             mywok[i] = Integer.parseInt(st.nextToken());
-            if (mywok[i] <= order) {
-                wok.add(mywok[i]);
-            }
+            wok.add(mywok[i]);
         }
 
 
@@ -39,13 +37,15 @@ public class boj13910 {
         }
         wok = wok.stream().sorted().collect(Collectors.toList());
         cook();
-        System.out.println(dp[order]);
-
+        if(Integer.MAX_VALUE==dp[order])
+            System.out.println(-1);
+        else {
+            System.out.println(dp[order]);
+        }
     }
 
     public static void cook() {
-
-        for (int i = 0; i < order+1; i++) {
+        for (int i = 1; i <= order; i++) {
             for (int j = 0; j < wok.size(); j++) {
                 if(i<wok.get(j)) break;
                 else if(i==wok.get(j)){
