@@ -19,18 +19,18 @@ public class boj2792 {
         int left = 1;
         int sum = 0;
         int answer = 0;
-        while(right-left>1){
-            int mid = (right+left)/2;
+        int mid = 0;
+        while(left<=right){
+            mid = (right+left)/2;
             sum = 0;
             for (int i = 0; i < M; i++) {
                 sum+= Math.ceil((double)arr.get(i)/mid);
-                if(sum>N) break;
             }
             if(sum>N){
-                left = mid;
+                left = mid+1;
             }else{
                 answer = mid;
-                right = mid;
+                right = mid-1;
             }
         }
         System.out.println(answer);
