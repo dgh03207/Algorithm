@@ -14,6 +14,7 @@ public class boj1477 {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
         int L = Integer.parseInt(st.nextToken());
+
         if(N==0){
             System.out.println(((int)Math.ceil(L/(double)(M+1))));
         }else {
@@ -32,7 +33,7 @@ public class boj1477 {
                 int mid = (left + right) / 2;
                 int prev = 0;
                 int add = 0;
-                for (int i = 0; i < N+1; i++) {
+                for (int i = 0; i <= N; i++) {
                     if (add > M) break;
                     if (stores[i] - prev > mid) {
                         int poss = (int) Math.ceil((stores[i] - prev) / (double) mid) - 1;
