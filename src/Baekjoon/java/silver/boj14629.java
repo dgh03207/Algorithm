@@ -6,36 +6,44 @@ import java.math.BigInteger;
 
 public class boj14629 {
     static String Num,answer;
-    static BigInteger minResult;
+    static Long minResult,targetNum;
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        minResult = 9876543210L;
         Num = br.readLine();
-        minResult = new BigInteger("9876543210");
-        BigInteger bigN = new BigInteger(Num);
-        if(Num.length()>10||bigN.compareTo(minResult)>=0){
-            System.out.println(minResult);
-        }else{
+        targetNum = Long.parseLong(Num);
+        if(targetNum>=minResult){
+            System.out.println("9876543210");
+        }else if(Num.length()<=10){
             boolean[] numbers = new boolean[10];
+            int digit = Num.length();
+            dfs(numbers,0,"",digit);
+            if(digit!=1){
+                dfs(numbers,0,"",digit-1);
+            }
+            if(digit!=10){
+                dfs(numbers,0,"",digit+1);
+            }
 
-            dfs(numbers,0,"");
-            System.out.println(answer);
+            System.out.println(Long.parseLong(answer));
         }
     }
 
-    private static void dfs(boolean[] numbers,int idx,String myNum){
-        if(idx==Num.length()){
-            BigInteger bigmyNum = new BigInteger(myNum);
-            BigInteger bigN = new BigInteger(Num);
-            BigInteger result = bigmyNum.subtract(bigN).abs();
-            if(result.compareTo(minResult)<0){
+    private static void dfs(boolean[] numbers,int idx,String myNum,int Max){
+        if(idx==Max){
+            Long calNum = Long.parseLong(myNum);
+            Long result = Math.abs(calNum-targetNum);
+            if(minResult>result){
                 minResult = result;
                 answer = myNum;
             }
+            return;
         }
+
         for (int i = 0; i <10; i++) {
             if(!numbers[i]){
                 numbers[i] = true;
-                dfs(numbers,idx+1,myNum+Integer.toString(i));
+                dfs(numbers,idx+1,myNum+Integer.toString(i),Max);
                 numbers[i] = false;
             }
         }
